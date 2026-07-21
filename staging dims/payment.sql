@@ -7,9 +7,9 @@ go
 
 ---staging dimensions
 
-if object_id('stg_db_bright.dbo.dim_payement_method', 'u') is null
+if object_id('stg_db_bright.dbo.dim_payment_method', 'u') is null
 begin
-create table stg_db_bright.dbo.dim_payement_method
+create table stg_db_bright.dbo.dim_payment_method
 (
 	payment_method_id int identity(1,1) primary key,
 	type varchar(255)
@@ -18,12 +18,12 @@ end
 go
 
 ----truncate table
-truncate table stg_db_bright.dbo.dim_payement_method
+truncate table stg_db_bright.dbo.dim_payment_method
 
 ----inseriting data into staging dim
-insert into stg_db_bright.dbo.dim_payement_method
+insert into stg_db_bright.dbo.dim_payment_method
 select distinct payment_method
 from stg_db_bright.dbo.Bright_Raw_data
 go
 
-select * from stg_db_bright.dbo.dim_payement_method
+select * from stg_db_bright.dbo.dim_payment_method
